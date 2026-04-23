@@ -104,19 +104,19 @@
   .hero-slide.active { opacity: 1; }
   /* Your banner images */
 .hero-slide-1 {
-  background-image: url('Banner_Images/banner1.png');
+  background-image: url('Banner_Images/banner1.jpg');
 }
 
 .hero-slide-2 {
-  background-image: url('Banner_Images/banner2.png');
+  background-image: url('Banner_Images/banner2.jpg');
 }
 
 .hero-slide-3 {
-  background-image: url('Banner_Images/banner1.png');
+  background-image: url('Banner_Images/banner1.jpg');
 }
 
 .hero-slide-4 {
-  background-image: url('Banner_Images/banner1.png');
+  background-image: url('Banner_Images/banner1.jpg');
 }
   .hero-slide::after {
     content: '';
@@ -344,15 +344,14 @@
 
   .services-categories { max-width: 1240px; margin: 0 auto; }
 
-  .service-category { margin-bottom: 68px; }
+  /* ── Shared base ── */
+  .service-category { margin-bottom: 68px; position: relative; }
   .service-category-title {
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.75rem; font-weight: 600; color: var(--green-dark);
-    margin-bottom: 32px;
-    padding-bottom: 16px;
+    margin-bottom: 32px; padding-bottom: 16px;
     border-bottom: 1px solid rgba(58,158,82,0.15);
-    display: flex; align-items: center; gap: 14px;
-    position: relative;
+    display: flex; align-items: center; gap: 14px; position: relative;
   }
   .service-category-title::after {
     content: ''; position: absolute; bottom: -1px; left: 0; width: 60px; height: 2px;
@@ -367,13 +366,11 @@
     box-shadow: 0 3px 14px rgba(58,158,82,0.15);
     border: 1px solid rgba(58,158,82,0.1);
   }
-
   .service-cards-row {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
     gap: 24px;
   }
-
   .service-card {
     background: white; border-radius: 20px;
     border: 1px solid rgba(58,158,82,0.07);
@@ -382,23 +379,13 @@
     cursor: default; overflow: hidden;
   }
   .service-card:hover { transform: translateY(-8px) scale(1.01); box-shadow: 0 20px 60px rgba(26,92,42,0.14); }
-
   .service-card-img {
-    /* width: 100%; aspect-ratio: 4/3;
-    display: flex; align-items: center; justify-content: center;
-    position: relative; overflow: hidden;
-    width: 100%; */
-
-  aspect-ratio: 4 / 3;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  border-radius: 12px;
-  overflow: hidden;
+    aspect-ratio: 4 / 3;
+    background-size: cover; background-position: center; background-repeat: no-repeat;
+    border-radius: 12px; overflow: hidden;
   }
   .service-card-img::after {
-    content: '';
-    position: absolute; inset: 0;
+    content: ''; position: absolute; inset: 0;
     background: linear-gradient(to bottom, rgba(255,255,255,0) 50%, rgba(255,255,255,0.08) 100%);
   }
   .service-card-img i {
@@ -411,7 +398,6 @@
     position: absolute; inset: 0;
     background: linear-gradient(to bottom, transparent 55%, rgba(26,92,42,0.08) 100%);
   }
-
   .service-card-body { padding: 22px 22px 26px; }
   .service-card-body h3 {
     font-family: 'Cormorant Garamond', serif;
@@ -422,8 +408,193 @@
   .service-price {
     font-weight: 600; color: var(--green-primary); font-size: 0.9rem;
     display: flex; align-items: center; gap: 5px;
-    padding-top: 14px;
-    border-top: 1px solid rgba(58,158,82,0.1);
+    padding-top: 14px; border-top: 1px solid rgba(58,158,82,0.1);
+  }
+
+  /* ══════════════════════════════════════════
+     SECTION 1 — Haircut & Styling
+     Style: Fresh white with floating leaf particles + slide-up animation
+  ══════════════════════════════════════════ */
+  @keyframes floatLeaf {
+    0%   { transform: translateY(0px) rotate(0deg); opacity: 0.18; }
+    50%  { transform: translateY(-18px) rotate(12deg); opacity: 0.32; }
+    100% { transform: translateY(0px) rotate(0deg); opacity: 0.18; }
+  }
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(36px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .cat-haircut {
+    background: #ffffff;
+    border-radius: 28px;
+    padding: 44px 44px 48px;
+    border: 1.5px solid rgba(58,158,82,0.1);
+    position: relative; overflow: hidden;
+  }
+  .cat-haircut::before {
+    content: '';
+    position: absolute; inset: 0; pointer-events: none;
+    background:
+      radial-gradient(ellipse at 5% 0%, rgba(91,191,110,0.13) 0%, transparent 40%),
+      radial-gradient(ellipse at 95% 100%, rgba(58,158,82,0.09) 0%, transparent 40%);
+  }
+  .cat-haircut .leaf-float {
+    position: absolute; top: 18px; right: 36px;
+    font-size: 2.4rem; color: var(--green-light);
+    animation: floatLeaf 4.2s ease-in-out infinite;
+    pointer-events: none; user-select: none; line-height: 1;
+  }
+  .cat-haircut .leaf-float:nth-child(2) {
+    top: 60px; right: 80px; font-size: 1.4rem;
+    animation-delay: 1.4s; animation-duration: 5.5s;
+  }
+  .cat-haircut .leaf-float:nth-child(3) {
+    top: 30px; right: 130px; font-size: 1rem;
+    animation-delay: 2.8s; animation-duration: 3.8s;
+  }
+  .cat-haircut .service-category-title { color: var(--green-dark); border-bottom-color: rgba(58,158,82,0.18); }
+  .cat-haircut .service-card { animation: slideUp 0.55s ease both; }
+  .cat-haircut .service-cards-row .service-card:nth-child(1) { animation-delay: 0.05s; }
+  .cat-haircut .service-cards-row .service-card:nth-child(2) { animation-delay: 0.15s; }
+  .cat-haircut .service-cards-row .service-card:nth-child(3) { animation-delay: 0.25s; }
+  .cat-haircut .service-cards-row .service-card:nth-child(4) { animation-delay: 0.35s; }
+  .cat-haircut .service-card {
+    border-color: rgba(58,158,82,0.1);
+    box-shadow: 0 3px 18px rgba(26,92,42,0.07);
+  }
+  .cat-haircut .service-card:hover {
+    transform: translateY(-10px) scale(1.015);
+    box-shadow: 0 22px 56px rgba(26,92,42,0.15);
+  }
+
+  /* ══════════════════════════════════════════
+     SECTION 2 — Hair Treatment & Coloring
+     Style: Deep forest green luxury + shimmer pulse on cards
+  ══════════════════════════════════════════ */
+  @keyframes shimmerPulse {
+    0%   { box-shadow: 0 4px 28px rgba(0,0,0,0.18); }
+    50%  { box-shadow: 0 8px 40px rgba(201,168,76,0.25), 0 0 0 1px rgba(201,168,76,0.15); }
+    100% { box-shadow: 0 4px 28px rgba(0,0,0,0.18); }
+  }
+  @keyframes spinBadge {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+  }
+  .cat-treatment {
+    background: linear-gradient(135deg, #132e18 0%, #1a5c2a 45%, #0f2914 100%);
+    border-radius: 28px;
+    padding: 44px 44px 48px;
+    position: relative; overflow: hidden;
+  }
+  .cat-treatment::before {
+    content: '';
+    position: absolute; inset: 0; pointer-events: none;
+    background:
+      radial-gradient(ellipse at 85% 15%, rgba(201,168,76,0.2) 0%, transparent 40%),
+      radial-gradient(ellipse at 10% 85%, rgba(91,191,110,0.18) 0%, transparent 45%),
+      radial-gradient(ellipse at 50% 50%, rgba(255,255,255,0.03) 0%, transparent 60%);
+  }
+  .cat-treatment .featured-badge {
+    position: absolute; top: 22px; right: 28px;
+    background: rgba(201,168,76,0.15);
+    border: 1px solid rgba(201,168,76,0.4);
+    color: #e8c36a;
+    font-size: 0.65rem; font-weight: 700;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    padding: 6px 16px; border-radius: 50px;
+  }
+  .cat-treatment .service-category-title {
+    color: white; border-bottom-color: rgba(255,255,255,0.12);
+  }
+  .cat-treatment .service-category-title::after {
+    background: linear-gradient(90deg, #c9a84c, rgba(255,255,255,0.3));
+  }
+  .cat-treatment .service-category-title i {
+    background: rgba(255,255,255,0.12); color: #e8c36a;
+    border-color: rgba(255,255,255,0.1); box-shadow: 0 3px 14px rgba(0,0,0,0.25);
+  }
+  .cat-treatment .service-card {
+    background: rgba(255,255,255,0.97);
+    border-color: rgba(255,255,255,0.2);
+    animation: shimmerPulse 3.5s ease-in-out infinite;
+  }
+  .cat-treatment .service-cards-row .service-card:nth-child(2) { animation-delay: 0.85s; }
+  .cat-treatment .service-cards-row .service-card:nth-child(3) { animation-delay: 1.7s; }
+  .cat-treatment .service-cards-row .service-card:nth-child(4) { animation-delay: 2.55s; }
+  .cat-treatment .service-card:hover {
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 28px 72px rgba(0,0,0,0.35), 0 0 0 1.5px rgba(201,168,76,0.4) !important;
+    animation: none;
+  }
+  .cat-treatment .service-card-body h3 { color: var(--green-dark); }
+  .cat-treatment .service-card-body p { color: var(--text-mid); }
+  .cat-treatment .service-price { color: var(--green-dark); font-weight: 700; border-top-color: rgba(58,158,82,0.15); }
+
+  /* ══════════════════════════════════════════
+     SECTION 3 — Skin & Beauty
+     Style: Warm blush-and-gold editorial + card flip reveal
+  ══════════════════════════════════════════ */
+  @keyframes softRise {
+    from { opacity: 0; transform: translateY(24px) scale(0.97); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+  }
+  @keyframes sparkle {
+    0%,100% { opacity: 0; transform: scale(0.5) rotate(0deg); }
+    50%      { opacity: 1; transform: scale(1.2) rotate(180deg); }
+  }
+  .cat-beauty {
+    background: linear-gradient(145deg, #fdf6ee 0%, #fef0e6 50%, #fdf7f0 100%);
+    border-radius: 28px;
+    padding: 44px 44px 48px;
+    border: 1.5px solid rgba(201,140,60,0.15);
+    position: relative; overflow: hidden;
+  }
+  .cat-beauty::before {
+    content: '';
+    position: absolute; inset: 0; pointer-events: none;
+    background:
+      radial-gradient(ellipse at 90% 10%, rgba(201,168,76,0.18) 0%, transparent 40%),
+      radial-gradient(ellipse at 5% 90%, rgba(220,130,100,0.1) 0%, transparent 45%);
+  }
+  .cat-beauty .sparkle-dot {
+    position: absolute; width: 6px; height: 6px; border-radius: 50%;
+    background: #c9a84c; pointer-events: none;
+    animation: sparkle 3s ease-in-out infinite;
+  }
+  .cat-beauty .sparkle-dot:nth-child(1) { top: 24px; right: 60px; animation-delay: 0s; }
+  .cat-beauty .sparkle-dot:nth-child(2) { top: 50px; right: 100px; width: 4px; height: 4px; animation-delay: 1s; }
+  .cat-beauty .sparkle-dot:nth-child(3) { top: 16px; right: 140px; width: 5px; height: 5px; animation-delay: 2s; }
+  .cat-beauty .service-category-title {
+    color: #7a3e0e;
+    border-bottom-color: rgba(201,140,60,0.2);
+  }
+  .cat-beauty .service-category-title::after {
+    background: linear-gradient(90deg, #c9a84c, rgba(201,168,76,0.3));
+  }
+  .cat-beauty .service-category-title i {
+    background: #fff8ef;
+    color: #b5832a;
+    border-color: rgba(201,140,60,0.2);
+    box-shadow: 0 3px 14px rgba(201,140,60,0.12);
+  }
+  .cat-beauty .service-card {
+    border-color: rgba(201,140,60,0.12);
+    box-shadow: 0 3px 20px rgba(180,100,40,0.08);
+    animation: softRise 0.6s ease both;
+  }
+  .cat-beauty .service-cards-row .service-card:nth-child(1) { animation-delay: 0.05s; }
+  .cat-beauty .service-cards-row .service-card:nth-child(2) { animation-delay: 0.18s; }
+  .cat-beauty .service-cards-row .service-card:nth-child(3) { animation-delay: 0.31s; }
+  .cat-beauty .service-cards-row .service-card:nth-child(4) { animation-delay: 0.44s; }
+  .cat-beauty .service-card:hover {
+    transform: translateY(-10px) scale(1.015);
+    box-shadow: 0 22px 56px rgba(180,100,40,0.16);
+  }
+  .cat-beauty .service-card-body h3 { color: #6b3309; }
+  .cat-beauty .service-card-body p { color: #a0704a; }
+  .cat-beauty .service-price {
+    color: #b5832a; font-weight: 700;
+    border-top-color: rgba(201,140,60,0.15);
   }
 
   /* ===== GALLERY ===== */
@@ -1007,6 +1178,8 @@
   width: 100%; height: 100%;
   border: none; border-radius: 18px;
   pointer-events: none;
+  
+  
 }
 
 /* Overlay sits on top — hides iframe controls, shows play button */
@@ -1198,7 +1371,10 @@
   <div class="services-categories">
 
     <!-- Category: Haircut & Styling -->
-    <div class="service-category">
+    <div class="service-category cat-haircut">
+      <span class="leaf-float">🌿</span>
+      <span class="leaf-float">🍃</span>
+      <span class="leaf-float">🌱</span>
       <div class="service-category-title">
         <i class="fa-solid fa-scissors"></i>
         Haircut &amp; Styling
@@ -1253,7 +1429,8 @@
     </div>
 
     <!-- Category: Hair Treatment -->
-    <div class="service-category">
+    <div class="service-category cat-treatment">
+      <span class="featured-badge">✦ Featured Collection ✦</span>
       <div class="service-category-title">
         <i class="fa-solid fa-droplet"></i>
         Hair Treatment &amp; Coloring
@@ -1307,7 +1484,10 @@
     </div>
 
     <!-- Category: Skin & Beauty -->
-    <div class="service-category">
+    <div class="service-category cat-beauty">
+      <span class="sparkle-dot"></span>
+      <span class="sparkle-dot"></span>
+      <span class="sparkle-dot"></span>
       <div class="service-category-title">
         <i class="fa-solid fa-spa"></i>
         Skin &amp; Beauty
