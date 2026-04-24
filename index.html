@@ -382,8 +382,11 @@
   .service-card-img {
     aspect-ratio: 4 / 3;
     background-size: cover; background-position: center; background-repeat: no-repeat;
+    background-color: transparent;
     border-radius: 12px; overflow: hidden;
+    position: relative;
   }
+
   .service-card-img::after {
     content: ''; position: absolute; inset: 0;
     background: linear-gradient(to bottom, rgba(255,255,255,0) 50%, rgba(255,255,255,0.08) 100%);
@@ -517,14 +520,15 @@
     background: rgba(255,255,255,0.97);
     border-color: rgba(255,255,255,0.2);
     animation: shimmerPulse 3.5s ease-in-out infinite;
+    transition: transform 0.35s cubic-bezier(0.22,0.61,0.36,1), box-shadow 0.35s ease;
   }
   .cat-treatment .service-cards-row .service-card:nth-child(2) { animation-delay: 0.85s; }
   .cat-treatment .service-cards-row .service-card:nth-child(3) { animation-delay: 1.7s; }
   .cat-treatment .service-cards-row .service-card:nth-child(4) { animation-delay: 2.55s; }
   .cat-treatment .service-card:hover {
     transform: translateY(-12px) scale(1.02);
-    box-shadow: 0 28px 72px rgba(0,0,0,0.35), 0 0 0 1.5px rgba(201,168,76,0.4) !important;
-    animation: none;
+    box-shadow: 0 28px 72px rgba(0,0,0,0.35), 0 0 0 1.5px rgba(201,168,76,0.4);
+    animation-play-state: paused;
   }
   .cat-treatment .service-card-body h3 { color: var(--green-dark); }
   .cat-treatment .service-card-body p { color: var(--text-mid); }
@@ -1317,7 +1321,7 @@
         <div class="img-placeholder">
          <!--  <i class="fa-solid fa-scissors"></i>-->
          <!--  <span style="font-size:0.8rem; color:var(--green-primary);">Glamour A Family Salon</span>-->
-          <img src="Banner_Images/About.png" alt="Glamour A Family Salon" 
+          <img src="Banner_Images/About.jpg" alt="Glamour A Family Salon" 
      style="width:100%; height:auto; object-fit:cover; border-radius:12px; display:block;">
         </div>
       </div>
@@ -1437,8 +1441,7 @@
       </div>
       <div class="service-cards-row">
         <div class="service-card animate">
-           <div class="service-card-img" style="background: linear-gradient(135deg, #e0f0e4, #c4e2ca);">
-            <i class="fa-solid fa-palette"></i>
+          <div class="service-card-img" style="background-image: url('Service/hairtreatment.png');">
             <div class="service-card-img-overlay"></div>
           </div>
           <div class="service-card-body">
@@ -1448,8 +1451,7 @@
           </div>
         </div>
         <div class="service-card animate">
-          <div class="service-card-img" style="background: linear-gradient(135deg, #e0f0e4, #c4e2ca);">
-            <i class="fa-solid fa-palette"></i>
+          <div class="service-card-img" style="background-image: url('Service/haircoloring.png');">
             <div class="service-card-img-overlay"></div>
           </div>
           <div class="service-card-body">
@@ -1459,8 +1461,7 @@
           </div>
         </div>
         <div class="service-card animate">
-          <div class="service-card-img" style="background: linear-gradient(135deg, #ccebdb, #a8d9b8);">
-            <i class="fa-solid fa-seedling"></i>
+          <div class="service-card-img" style="background-image: url('Service/scalpSpa.png');">
             <div class="service-card-img-overlay"></div>
           </div>
           <div class="service-card-body">
@@ -1470,8 +1471,7 @@
           </div>
         </div>
         <div class="service-card animate">
-          <div class="service-card-img" style="background: linear-gradient(135deg, #ccebdb, #a8d9b8);">
-            <i class="fa-solid fa-seedling"></i>
+          <div class="service-card-img" style="background-image: url('Service/scalpSpa.png');">
             <div class="service-card-img-overlay"></div>
           </div>
           <div class="service-card-body">
@@ -1494,8 +1494,7 @@
       </div>
       <div class="service-cards-row">
         <div class="service-card animate">
-          <div class="service-card-img" style="background: linear-gradient(135deg, #d8eed8, #bde0be);">
-            <i class="fa-solid fa-spa"></i>
+          <div class="service-card-img" style="background-image: url('Service/facial.png');">
             <div class="service-card-img-overlay"></div>
           </div>
           <div class="service-card-body">
@@ -1505,8 +1504,7 @@
           </div>
         </div>
         <div class="service-card animate">
-          <div class="service-card-img" style="background: linear-gradient(135deg, #e4f4e4, #c8e8c8);">
-            <i class="fa-solid fa-face-smile-beam"></i>
+          <div class="service-card-img" style="background-image: url('Service/bridal.png');">
             <div class="service-card-img-overlay"></div>
           </div>
           <div class="service-card-body">
@@ -1516,8 +1514,7 @@
           </div>
         </div>
         <div class="service-card animate">
-          <div class="service-card-img" style="background: linear-gradient(135deg, #d0ecdc, #b4dfc2);">
-            <i class="fa-solid fa-feather"></i>
+          <div class="service-card-img" style="background-image: url('Service/threading.png');">
             <div class="service-card-img-overlay"></div>
           </div>
           <div class="service-card-body">
@@ -1527,8 +1524,7 @@
           </div>
         </div>
         <div class="service-card animate">
-          <div class="service-card-img" style="background: linear-gradient(135deg, #c8e8d0, #a8d8b4);">
-            <i class="fa-solid fa-hand-sparkles"></i>
+          <div class="service-card-img" style="background-image: url('Service/manicure.png');">
             <div class="service-card-img-overlay"></div>
           </div>
           <div class="service-card-body">
